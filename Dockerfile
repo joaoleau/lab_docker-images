@@ -1,3 +1,10 @@
-FROM cloudflare/cloudflared:latest
+FROM debian:bullseye-slim
 
-CMD ["sh", "-c", "cloudflared tunnel --no-autoupdate run --token $TUNNEL_TOKEN"]
+RUN apt-get update && \
+    apt-get install -y curl gnupg && \
+    mkdir -p --mode=0755 /usr/share/keyrings && \
+    curl -fsSL https://pkg.cloudflare.com/cloudflare-main.gpg | tee /usr/share/keyrings/cloudflare-main.gpg >/dev/null && \
+    echo 'deb [signed-by=/usr/share/keyrings/cloudflare-main.gpg] https://pkg.cloudflare.com/cloudflared any main' | tee /etc/apt/sources.list.d/cloudflared.list && \
+    apt-get update && apt-get install -y cloudflared
+
+ENTRYPOINT ["cloudflared", "tunnel", "run", "--token"]
