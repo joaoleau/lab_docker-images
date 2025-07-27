@@ -10,4 +10,5 @@ RUN CGO_ENABLED=0 GOOS=linux go build -o yaml-checker
 
 
 FROM alpine:latest
+RUN apk update && apk add --no-cache git
 COPY --from=builder /app/yaml-checker /usr/local/bin/yaml-checker
