@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 	"os"
-	"github.com/joaoleau/golint/structs"
-	"github.com/joaoleau/golint/utils"
+	"github.com/joaoleau/golint/internal/structs"
+	"github.com/joaoleau/golint/internal/utils"
 	"gopkg.in/yaml.v3"
 )
 

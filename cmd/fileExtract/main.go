@@ -5,8 +5,8 @@ import (
 	"os"
 	"strings"
 	"path/filepath"
-	"github.com/joaoleau/golint/structs"
-	"github.com/joaoleau/golint/utils"
+	"github.com/joaoleau/golint/internal/structs"
+	"github.com/joaoleau/golint/internal/utils"
 )
 
 var args []string

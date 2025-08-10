@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 	"bufio"
-	"github.com/joaoleau/golint/structs"
+	"github.com/joaoleau/golint/internal/structs"
 )
 
 const RawPrefix = "RAW_VALUE_"
