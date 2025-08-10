@@ -4,10 +4,10 @@ WORKDIR /app
 COPY go.mod go.sum .
 RUN go mod download
 
-COPY src ./src
-RUN CGO_ENABLED=0 GOOS=linux go build -o yaml-checker ./src/yamlChecker/cmd/main.go
-RUN CGO_ENABLED=0 GOOS=linux go build -o file-extract ./src/fileExtract/cmd/main.go
-RUN CGO_ENABLED=0 GOOS=linux go build -o comment-on-pr ./src/commentOnPr/cmd/main.go
+COPY . .
+RUN CGO_ENABLED=0 GOOS=linux go build -o yaml-checker ./cmd/yamlChecker/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o file-extract ./cmd/fileExtract/main.go
+RUN CGO_ENABLED=0 GOOS=linux go build -o comment-on-pr ./cmd/commentOnPr/main.go
 
 FROM alpine:latest
 RUN apk update && apk add --no-cache git
