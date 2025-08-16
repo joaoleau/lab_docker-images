@@ -59,8 +59,7 @@ func (*PingRequest) Descriptor() ([]byte, []int) {
 
 type PingResponse struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Message       string                 `protobuf:"bytes,1,opt,name=message,proto3" json:"message,omitempty"`
-	Code          int32                  `protobuf:"varint,2,opt,name=code,proto3" json:"code,omitempty"`
+	Pong          string                 `protobuf:"bytes,1,opt,name=pong,proto3" json:"pong,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -95,18 +94,11 @@ func (*PingResponse) Descriptor() ([]byte, []int) {
 	return file_proto_ping_proto_rawDescGZIP(), []int{1}
 }
 
-func (x *PingResponse) GetMessage() string {
+func (x *PingResponse) GetPong() string {
 	if x != nil {
-		return x.Message
+		return x.Pong
 	}
 	return ""
-}
-
-func (x *PingResponse) GetCode() int32 {
-	if x != nil {
-		return x.Code
-	}
-	return 0
 }
 
 var File_proto_ping_proto protoreflect.FileDescriptor
@@ -114,10 +106,9 @@ var File_proto_ping_proto protoreflect.FileDescriptor
 const file_proto_ping_proto_rawDesc = "" +
 	"\n" +
 	"\x10proto/ping.proto\x12\x04main\"\r\n" +
-	"\vPingRequest\"<\n" +
-	"\fPingResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\x12\x12\n" +
-	"\x04code\x18\x02 \x01(\x05R\x04code2<\n" +
+	"\vPingRequest\"\"\n" +
+	"\fPingResponse\x12\x12\n" +
+	"\x04pong\x18\x01 \x01(\tR\x04pong2<\n" +
 	"\vPingService\x12-\n" +
 	"\x04Ping\x12\x11.main.PingRequest\x1a\x12.main.PingResponseB\aZ\x05/pingb\x06proto3"
 
